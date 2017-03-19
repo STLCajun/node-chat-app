@@ -2,15 +2,15 @@ var socket = io();
 socket.on('connect', function() {
     console.log('connected to server');
 
-    socket.emit('createEmail', {
-        to: 'luthermac@gmail.com',
-        text: 'This is just a text'
-    });
-
-    socket.emit('createMessage', {
-        to: 'Luther',
-        text: 'This is just a text'
-    });
+    // socket.emit('createEmail', {
+    //     to: 'luthermac@gmail.com',
+    //     text: 'This is just a text'
+    // });
+    //
+    // socket.emit('createMessage', {
+    //     to: 'Luther',
+    //     text: 'This is just a text'
+    // });
 });
 
 socket.on('disconnect', function() {

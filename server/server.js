@@ -19,18 +19,17 @@ io.on('connection', (socket) => {
         createAt: 123
     });
 
-    socket.emit('newMessage', {
-        from: 'Luther',
-        text: 'This is just a text',
-        createAt: 123
-    });
-
     socket.on('createEmail', (newEmail) => {
         console.log('Created Email', newEmail);
     });
 
     socket.on('createMessage', (newMessage) => {
         console.log('Created Message', newMessage);
+        io.emit('newMessage', {
+            from: newMessage.from,
+            text: newMessage.text,
+            createdAt: new Date().getTime()
+        });
     });
 
     socket.on('disconnect', (socket) => {

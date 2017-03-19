@@ -20,13 +20,10 @@ io.on('connection', (socket) => {
 
     socket.broadcast.emit('newMessage', generateMessage('Admin', 'New User Joined'));
 
-    socket.on('createEmail', (newEmail) => {
-        console.log('Created Email', newEmail);
-    });
-
-    socket.on('createMessage', (message) => {
+    socket.on('createMessage', (message, callback) => {
         console.log('Created Message', message);
-        socket.broadcast.emit('newMessage', generateMessage(message.from, message.text))
+        io.emit('newMessage', generateMessage(message.from, message.text))
+        callback('This is from the server');
     });
 
     socket.on('disconnect', (socket) => {

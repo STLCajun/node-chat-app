@@ -7,8 +7,8 @@ var message = {
 };
 
 var location = {
-    latitude: '75.12345',
-    longitude: '38.12345'
+    latitude: '38.12345',
+    longitude: '90.12345'
 };
 
 describe('generateMessage', () => {
